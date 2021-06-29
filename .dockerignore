@@ -1,0 +1,11 @@
+app/node_modules
+
+.vscode
+
+.git
+
+docker-files
+
+env-files
+
+.gitignore

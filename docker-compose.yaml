@@ -1,0 +1,44 @@
+version: "3.8"
+
+services:
+
+    server:
+
+        ports: 
+
+        - "3000:8000"
+        
+        build: 
+            
+            context: ./
+            
+            dockerfile: docker-files/server.dockerfile
+        
+        stdin_open: true
+
+        tty: true
+
+        env_file: 
+        
+            - ./env-files/.env.development
+
+        volumes: 
+    
+            - ./app:/app
+            
+    
+
+    npm: 
+        
+
+        build: 
+        
+            context: ./
+            
+            dockerfile: docker-files/npm.dockerfile
+
+        volumes: 
+
+        - ./app:/app:delegated
+
+    

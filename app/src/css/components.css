@@ -1,0 +1,185 @@
+.field-group {
+	/* * Messages */
+
+	--required-message: "Required";
+
+	--read-only-message: "Read Only";
+
+	--valid-message: "Valid";
+
+	--invalid-message: "Invalid";
+
+	--field-name: "User Name";
+
+	--out-of-range-message: "The number is out of range";
+
+	--in-range-message: "The number is in range";
+
+	--user-valid-message: var(--field-name) + " is Valid";
+
+	--default-message: "Default";
+
+	--user-invalid-message: var(--field-name) + " is Invalid";
+
+	--auto-fill-message: "Auto-filled";
+
+	--field-message: "";
+
+	/* * Colors */
+
+	--required-color: rgb(255, 166, 0);
+
+	--read-only-color: hsla(201, 22%, 34%, 0.503);
+
+	--valid-color: rgba(0, 242, 255, 0.932);
+
+	--invalid-color: hsl(3, 80%, 41%);
+
+	--in-range-color: hsl(180, 100%, 25%);
+
+	--out-of-range-color: rgb(255, 68, 0);
+
+	--user-valid-color: rgba(76, 0, 130, 0.959);
+
+	--user-invalid-color: var(--invalid-color);
+
+	--auto-fill-color: hsl(204, 46%, 34%);
+
+	--default-color: hsl(204, 8%, 76%);
+
+	--field-color: brown;
+
+	&__field {
+		border-color: var(--field-color);
+
+		outline-color: var(--field-color);
+
+		/*! Useful for option tags input type radio checkbox and button elements   */
+
+		&\:default:default {
+			--field-color: var(--default-color);
+			--field-message: var(--default-message);
+			--tw-ring-color: var(--default-color);
+			color: var(--default-color);
+		}
+
+		&\:auto-fill:autofill {
+			--field-color: var(--auto-fill-color);
+			--field-message: var(--auto-fill-message);
+			--tw-ring-color: var(--auto-fill-color);
+
+			& + .field-group__message {
+				--field-color: var(--auto-fill-color);
+				--field-message: var(--auto-fill-message);
+			}
+		}
+
+		&\:required:required {
+			--field-color: var(--required-color);
+			--field-message: var(--required-message);
+			--tw-ring-color: var(--required-color);
+
+			& + .field-group__message {
+				--field-color: var(--required-color);
+				--field-message: var(--required-message);
+			}
+		}
+
+		&\:valid:valid,
+		&\:focus:focus:valid {
+			--field-color: var(--valid-color);
+			--field-message: var(--valid-message);
+			--tw-ring-color: var(--valid-color);
+
+			& + .field-group__message {
+				--field-color: var(--valid-color);
+				--field-message: var(--valid-message);
+			}
+		}
+
+		&\:user-valid:user-valid {
+			--field-color: var(--user-valid-color);
+			--field-message: var(--user-valid-message);
+			--tw-ring-color: var(--user-valid-color);
+
+			& + .field-group__message {
+				--field-color: var(--user-valid-color);
+				--field-message: var(--user-invalid-message);
+			}
+		}
+
+		&\:user-invalid:user-invalid {
+			--field-color: var(--user-invalid-color);
+			--field-message: var(--user-invalid-message);
+			--tw-ring-color: var(--user-invalid-color);
+
+			& + .field-group__message {
+				--field-color: var(--user-invalid-color);
+				--field-message: var(--user-invalid-message);
+			}
+		}
+
+		&\:invalid:invalid,
+		&\:focus:focus:invalid {
+			--field-color: var(--invalid-color);
+			--field-message: var(--invalid-message);
+			--tw-ring-color: var(--invalid-color);
+
+			& + .field-group__message {
+				--field-color: var(--invalid-color);
+				--field-message: var(--invalid-message);
+			}
+		}
+
+		&\:in-range:in-range {
+			--field-color: var(--in-range-color);
+			--field-message: var(--in-range-message);
+			--tw-ring-color: var(--in-range-color);
+
+			& + .field-group__message {
+				--field-color: var(--in-range-color);
+				--field-message: var(--in-range-message);
+			}
+		}
+
+		&\:out-of-range:out-of-range {
+			--field-color: var(--out-of-range-color);
+			--field-message: var(--out-of-range-message);
+			--tw-ring-color: var(--out-of-range-color);
+
+			& + .field-group__message {
+				--field-color: var(--out-of-range-color);
+				--field-message: var(--out-of-range-message);
+			}
+		}
+
+		/* ! This one should always stay at the bottom  */
+		&\:read-only:read-only {
+			--field-color: var(--read-only-color);
+			--field-message: var(--read-only-message);
+			--tw-ring-color: var(--read-only-color);
+
+			& + .field-group__message {
+				--field-color: var(--read-only-color);
+				--field-message: var(--read-only-message);
+			}
+		}
+	}
+
+	&__message {
+		color: var(--field-color);
+		&:before {
+			content: var(--field-message);
+		}
+	}
+}
+
+/*! only useful for checkbox radio and progress bars  */
+.indeterminate:indeterminate {
+	--indeterminate-color: hsl(203, 18%, 41%);
+	--indeterminate-message: "indeterminate";
+	--field-color: var(--indeterminate-color);
+	--field-message: var(--indeterminate-message);
+	--tw-ring-color: var(--indeterminate-color);
+	color: var(--default-color);
+}

@@ -1,4 +1,4 @@
-# vue-3-template
+# app
 
 ## Project setup
 ```

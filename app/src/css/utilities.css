@@ -1,0 +1,7 @@
+.col-box {
+	@apply flex flex-col flex-nowrap;
+}
+
+.row-reverse-box {
+	@apply flex flex-row-reverse flex-wrap;
+}
