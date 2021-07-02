@@ -118,8 +118,10 @@ export default defineComponent({
                 props.iterable instanceof Map && props.iterable.size === 0
                 
                 const iterableIsASetAndIsNotEmpty=
+                
                 props.iterable instanceof Set && props.iterable.size === 0
 
+                
                 if (iterableIsASetAndIsNotEmpty || iterableIsAMapAndIsNotEmpty) {
                     
                     return true
@@ -131,7 +133,7 @@ export default defineComponent({
                 const iterableIsAStringAndIsNotEmpty = 
                 props.iterable instanceof String  && props.iterable.length === 0
 
-                if (iterableIsAnArrayAndIsNotEmpty|| iterableIsAStringAndIsNotEmpty) {
+                if (iterableIsAnArrayAndIsNotEmpty || iterableIsAStringAndIsNotEmpty) {
 
 
                     return true

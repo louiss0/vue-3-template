@@ -1,22 +1,24 @@
-<template>
+<template >
     
-    <h1 class="text-xl">This is the home page </h1> 
-      
+    <div class="container flex flex-wrap items-center w-4/5 mx-auto mt-48 shadow-xl justify-evenly h-96">
 
-    
-      
+        This is the home page  made in tailwind
+
+    </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from "vue";
+<script lang="ts" >
+import { defineComponent, } from "vue";
+
 
 
 export default defineComponent({
-  name: "Home",
+    name: "Home",
+
     setup() {
-  
-      return {
-      }
+
+      
+      
   
   }
     

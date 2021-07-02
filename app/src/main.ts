@@ -3,9 +3,8 @@ import App from './App.vue'
 import router from './routes';
 import components from "../src/components/base/globals";
 
-
 const app = createApp(App)
-    
+
 
 Object.entries(components).forEach(([key, value]) => {
     

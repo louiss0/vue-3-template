@@ -1,12 +1,36 @@
 <template>
-<router-view />
+  <router-view />
 </template>
 
 <script lang="ts">
-import { defineComponent, } from "vue"
+import { defineComponent,  onMounted, provide, } from "vue"
+import useTokenAuth from "./composables/useTokenAuth"
+import InjectionKeys from "./types/InjectionKeys"
+
+
 
 export default defineComponent({
-  name: 'App',
+  name: 'App', 
+
+  setup(){
+        
+        const  { 
+         autoLoginIfTokenExistsAndIsNotExpired, 
+         autoLogoutIfTokenExistsButTheExpirationDateIsLessThanNow 
+         }= useTokenAuth()
+
+      autoLogoutIfTokenExistsButTheExpirationDateIsLessThanNow()
+
+        onMounted(()=> {
+
+            autoLoginIfTokenExistsAndIsNotExpired()
+
+        })
+
+        provide(InjectionKeys.useTokenAuthKey, useTokenAuth)
+
+
+  }
 })
 </script>
 
